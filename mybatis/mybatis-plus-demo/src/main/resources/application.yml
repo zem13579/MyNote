@@ -1,0 +1,17 @@
+# DataSource Config
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/test
+mybatis-plus:
+  configuration:
+    # 开启 MyBatis-Plus SQL 日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 开启驼峰匹配
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    # 设置日志级别
+    com.yourcompany.yourproject.mapper: debug

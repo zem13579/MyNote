@@ -1,0 +1,47 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:design
+    driver-class-name: org.h2.Driver
+    username: design
+    password: design
+  h2:
+    console:
+      enabled: true
+      path: /myH2
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect:
+          storage_engine: innodb
+    show-sql: true
+  redis:
+    host: localhost
+    port: 6379
+    password: root123
+  sql:
+    init:
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+
+gitee:
+  clientId: c3132b38c7ac735746e07a9ba71b3dc9d6fccac4cdb64ec959b8b786dd08c63d
+  clientSecret: d2ca1ec85d5358f560ee46f8100ecf79a8ecc2ecc763239d9c19a05d89c6876e
+  callBack: http://localhost:8081/bridge/gitee
+  state: GITEE
+  user:
+    prefix: ${gitee.state}@
+    url:  https://gitee.com/api/v5/user?access_token=
+  token:
+    url:  https://gitee.com/oauth/token?grant_type=authorization_code&client_id=${gitee.clientId}&redirect_uri=${gitee.callBack}&client_secret=${gitee.clientSecret}&code=
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+
+spring:
+  application:
+    name: easy-excel-demo
+
+data-import-config:
+  reportInfos:
+    - reportName: 业绩报表
+      col-infos:
+        - fieldCnName: 姓名
+          fieldEnName: name
+          fieldType: string
+        - fieldCnName: 年龄
+          fieldEnName: age
+          fieldType: int
+app:
+  users:
+    - name: Alice
+      age: 30
+    - name: Bob
+      age: 40
+    - name: Charlie
+      age: 50
