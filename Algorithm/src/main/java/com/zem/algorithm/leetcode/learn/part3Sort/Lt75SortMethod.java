@@ -2,11 +2,11 @@ package com.zem.algorithm.leetcode.learn.part3Sort;
 
 import java.util.Arrays;
 
-public class Lt75 {
+public class Lt75SortMethod {
     public static void main(String[] args) {
-        Lt75 lt75 = new Lt75();
+        Lt75SortMethod lt75SortMethod = new Lt75SortMethod();
         int[] nums = {2, 3, 9, 5, 4};
-        lt75.sortColors5(nums);
+        lt75SortMethod.sortColors5(nums);
         System.out.println(Arrays.toString(nums));
     }
 
@@ -93,6 +93,7 @@ public class Lt75 {
 
     /**
      * 快速排序
+     *
      * @param nums
      */
     public void sortColors5(int[] nums) {
@@ -129,5 +130,31 @@ public class Lt75 {
         nums[j] = temp;
     }
 
+
+    public void sortColors6(int[] nums) {
+        this.mergeSort(nums, 0, nums.length - 1);
+    }
+
+    private void mergeSort(int[] nums, int left, int right) {
+        if (left < right) {
+            int mid = (left + right) / 2;
+            mergeSort(nums, left, mid);
+            mergeSort(nums, mid + 1, right);
+            this.merge(nums, left, mid, right);
+        }
+    }
+
+    private void merge(int[] nums, int left, int mid, int right) {
+        int[] temp = new int[right - left + 1];
+        int i = left;
+        int j = mid + 1;
+        int k = 0;
+        while (i <= mid && j <= right) {
+            temp[k++] = nums[i] <= nums[j] ? nums[i++] : nums[j++];
+        }
+        while (i <= mid) temp[k++] = nums[i++];
+        while (j <= right) temp[k++] = nums[j++];
+        System.arraycopy(temp, 0, nums, left, temp.length);
+    }
 
 }
