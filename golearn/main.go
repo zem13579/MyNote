@@ -1,20 +1,18 @@
 package main
 
-import (
-	"fmt"
-	"time"
+import "fmt"
+
+type Vertex struct {
+	X, Y int
+}
+
+var (
+	v1 = Vertex{1, 2}  // 创建一个 Vertex 类型的结构体
+	v2 = Vertex{X: 1}  // Y:0 被隐式地赋予零值
+	v3 = Vertex{}      // X:0 Y:0
+	p  = &Vertex{1, 2} // 创建一个 *Vertex 类型的结构体（指针）
 )
 
-var p *int
-
 func main() {
-	t := time.Now()
-	switch {
-	case t.Hour() < 12:
-		fmt.Println("Good morning!")
-	case t.Hour() < 17:
-		fmt.Println("Good afternoon.")
-	default:
-		fmt.Println("Good evening.")
-	}
+	fmt.Println(v1, p, v2, v3)
 }
