@@ -1,7 +1,6 @@
 package org.example.sort;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class BubbleSort<T extends Comparable<T>> extends SortModelArr<T> {
     @Override
